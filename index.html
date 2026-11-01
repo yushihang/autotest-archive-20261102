@@ -86,37 +86,265 @@
           <section class="concept" id="concept-what" aria-labelledby="concept-what-title">
             <span class="concept__num" aria-hidden="true">01</span>
             <h3 class="concept__title" id="concept-what-title">什么是区块链</h3>
-            <div class="concept__body"></div>
+            <div class="concept__body">
+              <p>
+                想象班里有一本大账本：谁借了谁的橡皮，谁还了一支铅笔，
+                都一笔一笔记在上面。
+              </p>
+              <p>
+                这本账本不锁在老师抽屉里，而是<strong>每个同学手里都有一本一模一样的</strong>。
+                一页接一页，用数字指纹串起来，就叫「区块链」。
+              </p>
+              <figure class="concept__figure">
+                <svg viewBox="0 0 320 170" aria-hidden="true" focusable="false">
+                  <rect x="88" y="14" width="144" height="92" rx="10" fill="#e8efff" stroke="#2563eb" stroke-width="2.5"/>
+                  <path d="M160 14v92" stroke="#2563eb" stroke-width="2.5"/>
+                  <g stroke="#93b4ff" stroke-width="4" stroke-linecap="round">
+                    <path d="M104 38h40M104 54h40M104 70h26"/>
+                    <path d="M176 38h40M176 54h28M176 70h40"/>
+                  </g>
+                  <g fill="#fff" stroke="#2563eb" stroke-width="2">
+                    <rect x="34" y="126" width="70" height="30" rx="8"/>
+                    <rect x="125" y="126" width="70" height="30" rx="8"/>
+                    <rect x="216" y="126" width="70" height="30" rx="8"/>
+                  </g>
+                  <g stroke="#2563eb" stroke-width="2" stroke-dasharray="3 4">
+                    <path d="M104 141h21"/>
+                    <path d="M195 141h21"/>
+                  </g>
+                  <g fill="#2563eb" font-size="11" font-weight="700" text-anchor="middle">
+                    <text x="69" y="146">第 1 页</text>
+                    <text x="160" y="146">第 2 页</text>
+                    <text x="251" y="146">第 3 页</text>
+                  </g>
+                </svg>
+                <figcaption>一本账本，一页接一页地记下去</figcaption>
+              </figure>
+              <p class="concept__takeaway">
+                <span>记住</span>区块链，就是一本大家一起记、一起对的账本。
+              </p>
+            </div>
           </section>
 
           <section class="concept" id="concept-block" aria-labelledby="concept-block-title">
             <span class="concept__num" aria-hidden="true">02</span>
-            <h3 class="concept__title" id="concept-block-title">区块：一页账本</h3>
-            <div class="concept__body"></div>
+            <h3 class="concept__title" id="concept-block-title">区块：装信息的盒子</h3>
+            <div class="concept__body">
+              <p>
+                区块就像一只方盒子。一段时间里发生的事，先都塞进这只盒子里。
+              </p>
+              <p>
+                比如「小明借给小华一块橡皮」「小华还了一支铅笔」——
+                写满以后，盒子就<strong>封口、贴编号</strong>，等着和下一个盒子接上。
+              </p>
+              <figure class="concept__figure">
+                <svg viewBox="0 0 320 170" aria-hidden="true" focusable="false">
+                  <rect x="56" y="24" width="208" height="120" rx="14" fill="#eafaf3" stroke="#10b981" stroke-width="2.5"/>
+                  <path d="M56 52h208" stroke="#10b981" stroke-width="2.5"/>
+                  <rect x="196" y="32" width="56" height="18" rx="9" fill="#10b981"/>
+                  <text x="224" y="45" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">第 7 号</text>
+                  <g font-size="12" fill="#14213d">
+                    <circle cx="78" cy="76" r="4" fill="#10b981"/>
+                    <text x="92" y="80">小明借给小华一块橡皮</text>
+                    <circle cx="78" cy="103" r="4" fill="#10b981"/>
+                    <text x="92" y="107">小华还了一支铅笔</text>
+                    <circle cx="78" cy="130" r="4" fill="#10b981"/>
+                    <text x="92" y="134" fill="#53617e">还可以再记几笔…</text>
+                  </g>
+                </svg>
+                <figcaption>一只盒子，装着这段时间的记录</figcaption>
+              </figure>
+              <p class="concept__takeaway">
+                <span>记住</span>一个区块，就是一只装满记录的盒子。
+              </p>
+            </div>
           </section>
 
           <section class="concept" id="concept-hash" aria-labelledby="concept-hash-title">
             <span class="concept__num" aria-hidden="true">03</span>
-            <h3 class="concept__title" id="concept-hash-title">哈希：内容的指纹</h3>
-            <div class="concept__body"></div>
+            <h3 class="concept__title" id="concept-hash-title">哈希：独一无二的指纹</h3>
+            <div class="concept__body">
+              <p>
+                哈希是内容算出来的一枚「指纹」。同一句话，
+                不管算多少遍，得到的都是同一枚指纹。
+              </p>
+              <p>
+                但只要<strong>改掉一个字，指纹就会面目全非</strong>。
+                所以谁也没法偷偷改内容，还假装什么都没发生。
+              </p>
+              <figure class="concept__figure">
+                <svg viewBox="0 0 320 170" aria-hidden="true" focusable="false">
+                  <text x="78" y="20" text-anchor="middle" font-size="10" fill="#626e8a">原来的内容</text>
+                  <rect x="8" y="30" width="140" height="112" rx="12" fill="#fff" stroke="#cfd8ea" stroke-width="2"/>
+                  <text x="78" y="60" text-anchor="middle" font-size="12" fill="#14213d">我借你一块橡皮</text>
+                  <text x="78" y="82" text-anchor="middle" font-size="10" fill="#53617e">算一算 ↓</text>
+                  <rect x="24" y="94" width="108" height="30" rx="8" fill="#e8efff"/>
+                  <text x="78" y="114" text-anchor="middle" font-size="12" font-weight="700" fill="#2563eb" font-family="ui-monospace, monospace">a1b2c3</text>
+
+                  <text x="160" y="100" text-anchor="middle" font-size="24" font-weight="700" fill="#f97362">≠</text>
+
+                  <text x="242" y="20" text-anchor="middle" font-size="10" fill="#626e8a">改了一个字</text>
+                  <rect x="172" y="30" width="140" height="112" rx="12" fill="#fff" stroke="#f3c0b7" stroke-width="2"/>
+                  <text x="242" y="60" text-anchor="middle" font-size="12" fill="#14213d">我借你一块<tspan fill="#f97362" font-weight="700">像</tspan>皮</text>
+                  <text x="242" y="82" text-anchor="middle" font-size="10" fill="#f97362">只改了一个字</text>
+                  <rect x="188" y="94" width="108" height="30" rx="8" fill="#fdeae6"/>
+                  <text x="242" y="114" text-anchor="middle" font-size="12" font-weight="700" fill="#d9472f" font-family="ui-monospace, monospace">7f4e9d</text>
+                </svg>
+                <figcaption>内容差一点点，指纹就差得远远的</figcaption>
+              </figure>
+              <p class="concept__takeaway">
+                <span>记住</span>内容一动，指纹立刻变得不一样。
+              </p>
+            </div>
           </section>
 
           <section class="concept" id="concept-chain" aria-labelledby="concept-chain-title">
             <span class="concept__num" aria-hidden="true">04</span>
-            <h3 class="concept__title" id="concept-chain-title">链：一环扣一环</h3>
-            <div class="concept__body"></div>
+            <h3 class="concept__title" id="concept-chain-title">链条：一环扣一环</h3>
+            <div class="concept__body">
+              <p>
+                每个盒子里都留着一行小字：<strong>我前面那只盒子的指纹是多少</strong>。
+                这样它们就一只咬着一只，连成一条链。
+              </p>
+              <p>
+                要是有人偷偷改了中间那只盒子，它的指纹就变了，
+                后面那只盒子立刻对不上——整条链都会喊「不对劲」。
+              </p>
+              <figure class="concept__figure">
+                <svg viewBox="0 0 320 170" aria-hidden="true" focusable="false">
+                  <g fill="#fff8e6" stroke="#e0a100" stroke-width="2">
+                    <rect x="2" y="24" width="94" height="122" rx="10"/>
+                    <rect x="113" y="24" width="94" height="122" rx="10"/>
+                    <rect x="224" y="24" width="94" height="122" rx="10"/>
+                  </g>
+                  <g text-anchor="middle" fill="#14213d" font-size="11" font-weight="700">
+                    <text x="49" y="46">第 1 块</text>
+                    <text x="160" y="46">第 2 块</text>
+                    <text x="271" y="46">第 3 块</text>
+                  </g>
+                  <g text-anchor="middle" fill="#626e8a" font-size="9">
+                    <text x="49" y="68">上一块指纹</text>
+                    <text x="160" y="68">上一块指纹</text>
+                    <text x="271" y="68">上一块指纹</text>
+                  </g>
+                  <g text-anchor="middle" font-size="11" font-family="ui-monospace, monospace">
+                    <rect x="13" y="74" width="72" height="20" rx="6" fill="#fff1cf"/>
+                    <text x="49" y="88" fill="#8a6200">——</text>
+                    <rect x="124" y="74" width="72" height="20" rx="6" fill="#fff1cf"/>
+                    <text x="160" y="88" fill="#8a6200">a1b2c3</text>
+                    <rect x="235" y="74" width="72" height="20" rx="6" fill="#fff1cf"/>
+                    <text x="271" y="88" fill="#8a6200">c3d4e5</text>
+                  </g>
+                  <g text-anchor="middle" fill="#626e8a" font-size="9">
+                    <text x="49" y="114">本块指纹</text>
+                    <text x="160" y="114">本块指纹</text>
+                    <text x="271" y="114">本块指纹</text>
+                  </g>
+                  <g text-anchor="middle" font-size="11" font-family="ui-monospace, monospace">
+                    <rect x="13" y="120" width="72" height="20" rx="6" fill="#e8efff"/>
+                    <text x="49" y="134" fill="#1d4ed8">a1b2c3</text>
+                    <rect x="124" y="120" width="72" height="20" rx="6" fill="#e8efff"/>
+                    <text x="160" y="134" fill="#1d4ed8">c3d4e5</text>
+                    <rect x="235" y="120" width="72" height="20" rx="6" fill="#e8efff"/>
+                    <text x="271" y="134" fill="#1d4ed8">e5f6a7</text>
+                  </g>
+                  <g stroke="#e0a100" stroke-width="2" fill="none">
+                    <path d="M97 85h13"/>
+                    <path d="M106 81l4 4-4 4"/>
+                    <path d="M208 85h13"/>
+                    <path d="M217 81l4 4-4 4"/>
+                  </g>
+                </svg>
+                <figcaption>每块都写着前一块的指纹</figcaption>
+              </figure>
+              <p class="concept__takeaway">
+                <span>记住</span>动了一块，后面的每一块都会跟着变。
+              </p>
+            </div>
           </section>
 
           <section class="concept" id="concept-decentralized" aria-labelledby="concept-decentralized-title">
             <span class="concept__num" aria-hidden="true">05</span>
-            <h3 class="concept__title" id="concept-decentralized-title">去中心化：没有唯一的管理员</h3>
-            <div class="concept__body"></div>
+            <h3 class="concept__title" id="concept-decentralized-title">去中心化：没有老大</h3>
+            <div class="concept__body">
+              <p>
+                普通账本只有班长一个人保管：他请假，账本就找不到了；
+                他想改，也没人拦得住。
+              </p>
+              <p>
+                区块链的账本<strong>每人一份</strong>。你改自己手里那本，
+                别人手里的还是原样，一对就露馅。
+              </p>
+              <figure class="concept__figure">
+                <svg viewBox="0 0 320 170" aria-hidden="true" focusable="false">
+                  <g stroke="#9db8f0" stroke-width="2" stroke-dasharray="4 4">
+                    <path d="M160 30 215 70M215 70l-21 65M194 135H126M126 135 105 70M105 70l55-40"/>
+                  </g>
+                  <g fill="#e8efff" stroke="#2563eb" stroke-width="2.5">
+                    <circle cx="160" cy="30" r="17"/>
+                    <circle cx="215" cy="70" r="17"/>
+                    <circle cx="194" cy="135" r="17"/>
+                    <circle cx="126" cy="135" r="17"/>
+                    <circle cx="105" cy="70" r="17"/>
+                  </g>
+                  <g fill="#fff" stroke="#2563eb" stroke-width="1.5">
+                    <rect x="152" y="26" width="16" height="9" rx="2"/>
+                    <rect x="207" y="66" width="16" height="9" rx="2"/>
+                    <rect x="186" y="131" width="16" height="9" rx="2"/>
+                    <rect x="118" y="131" width="16" height="9" rx="2"/>
+                    <rect x="97" y="66" width="16" height="9" rx="2"/>
+                  </g>
+                  <g stroke="#2563eb" stroke-width="1.5">
+                    <path d="M160 26v9M215 66v9M194 131v9M126 131v9M105 66v9"/>
+                  </g>
+                </svg>
+                <figcaption>没有中心，人人手里都有一本</figcaption>
+              </figure>
+              <p class="concept__takeaway">
+                <span>记住</span>没有一个说了算的人，改一本也没用。
+              </p>
+            </div>
           </section>
 
           <section class="concept" id="concept-consensus" aria-labelledby="concept-consensus-title">
             <span class="concept__num" aria-hidden="true">06</span>
-            <h3 class="concept__title" id="concept-consensus-title">共识：大家一起确认</h3>
-            <div class="concept__body"></div>
+            <h3 class="concept__title" id="concept-consensus-title">共识：大家一起核对</h3>
+            <div class="concept__body">
+              <p>
+                新盒子封口前，大家先做一道很难的数学题。
+                谁先做出来，就举手告诉所有人。
+              </p>
+              <p>
+                其他人接过来一算：<strong>对了！</strong>才把这只盒子接到链上。
+                帮忙做题、帮忙记账的人，就叫矿工。
+              </p>
+              <figure class="concept__figure">
+                <svg viewBox="0 0 320 170" aria-hidden="true" focusable="false">
+                  <g stroke="#cfd8ea" stroke-width="2" stroke-dasharray="4 4">
+                    <path d="M61 46l55 18M61 116l55-8M259 46l-55 18M259 116l-55-8"/>
+                  </g>
+                  <rect x="118" y="56" width="84" height="62" rx="12" fill="#eafaf3" stroke="#10b981" stroke-width="2.5"/>
+                  <text x="160" y="80" text-anchor="middle" font-size="11" font-weight="700" fill="#14213d">新账页</text>
+                  <text x="160" y="102" text-anchor="middle" font-size="11" fill="#0e8f66">✓ 已核对</text>
+                  <g fill="#e8efff" stroke="#2563eb" stroke-width="2">
+                    <circle cx="46" cy="38" r="16"/>
+                    <circle cx="46" cy="124" r="16"/>
+                    <circle cx="274" cy="38" r="16"/>
+                    <circle cx="274" cy="124" r="16"/>
+                  </g>
+                  <g fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M39 38l5 5 8-9"/>
+                    <path d="M39 124l5 5 8-9"/>
+                    <path d="M267 38l5 5 8-9"/>
+                    <path d="M267 124l5 5 8-9"/>
+                  </g>
+                </svg>
+                <figcaption>大多数人点头，新块才接得上</figcaption>
+              </figure>
+              <p class="concept__takeaway">
+                <span>记住</span>大家一起点头，这笔账才算数。
+              </p>
+            </div>
           </section>
         </div>
       </div>
