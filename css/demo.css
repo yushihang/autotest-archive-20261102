@@ -62,9 +62,9 @@
 }
 
 .chain-demo__input:focus-visible {
-  outline: none;
+  outline: 3px solid var(--color-sun);
+  outline-offset: 1px;
   border-color: var(--color-sun);
-  box-shadow: 0 0 0 3px rgb(255 209 102 / 0.3);
 }
 
 .chain-demo__actions {
@@ -100,7 +100,9 @@
 
 .chain-demo__btn--add:disabled {
   cursor: not-allowed;
-  opacity: 0.55;
+  color: #fff;
+  background-color: rgb(255 209 102 / 0.24);
+  box-shadow: none;
 }
 
 .chain-demo__btn--reset {
@@ -114,9 +116,10 @@
   border-color: #fff;
 }
 
+/* 焦点环用纯白：黄色按钮自己就是「太阳色」，再画黄圈就看不见了 */
 .chain-demo__btn:focus-visible {
-  outline: 3px solid rgb(255 255 255 / 0.6);
-  outline-offset: 2px;
+  outline: 3px solid #fff;
+  outline-offset: 3px;
 }
 
 /* 2. 状态提示
@@ -261,9 +264,9 @@
 }
 
 .chain-demo__block-data:focus-visible {
-  outline: none;
+  outline: 3px solid var(--color-brand);
+  outline-offset: 1px;
   border-color: var(--color-brand);
-  box-shadow: 0 0 0 3px rgb(37 99 235 / 0.2);
 }
 
 .chain-demo__block.is-alarm .chain-demo__block-data {

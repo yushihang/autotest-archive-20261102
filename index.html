@@ -32,7 +32,7 @@
     </nav>
   </header>
 
-  <main id="main">
+  <main id="main" tabindex="-1">
     <section class="hero" id="top" aria-labelledby="hero-title">
       <div class="container hero__inner">
         <div class="hero__copy">
@@ -52,7 +52,7 @@
             </a>
             <a class="btn btn--ghost" href="#demo">先去玩一下</a>
           </div>
-          <ul class="hero__facts">
+          <ul class="hero__facts" aria-label="本课概览">
             <li>6 个概念</li>
             <li>1 个互动演示</li>
             <li>约 15 分钟</li>
@@ -85,7 +85,7 @@
         <div class="concept-grid">
           <section class="concept" id="concept-what" aria-labelledby="concept-what-title">
             <span class="concept__num" aria-hidden="true">01</span>
-            <h3 class="concept__title" id="concept-what-title">什么是区块链</h3>
+            <h3 class="concept__title" id="concept-what-title"><span class="visually-hidden">第 1 站：</span>什么是区块链</h3>
             <div class="concept__body">
               <p>
                 想象班里有一本大账本：谁借了谁的橡皮，谁还了一支铅笔，
@@ -128,7 +128,7 @@
 
           <section class="concept" id="concept-block" aria-labelledby="concept-block-title">
             <span class="concept__num" aria-hidden="true">02</span>
-            <h3 class="concept__title" id="concept-block-title">区块：装信息的盒子</h3>
+            <h3 class="concept__title" id="concept-block-title"><span class="visually-hidden">第 2 站：</span>区块：装信息的盒子</h3>
             <div class="concept__body">
               <p>
                 区块就像一只方盒子。一段时间里发生的事，先都塞进这只盒子里。
@@ -162,7 +162,7 @@
 
           <section class="concept" id="concept-hash" aria-labelledby="concept-hash-title">
             <span class="concept__num" aria-hidden="true">03</span>
-            <h3 class="concept__title" id="concept-hash-title">哈希：独一无二的指纹</h3>
+            <h3 class="concept__title" id="concept-hash-title"><span class="visually-hidden">第 3 站：</span>哈希：独一无二的指纹</h3>
             <div class="concept__body">
               <p>
                 哈希是内容算出来的一枚「指纹」。同一句话，
@@ -200,7 +200,7 @@
 
           <section class="concept" id="concept-chain" aria-labelledby="concept-chain-title">
             <span class="concept__num" aria-hidden="true">04</span>
-            <h3 class="concept__title" id="concept-chain-title">链条：一环扣一环</h3>
+            <h3 class="concept__title" id="concept-chain-title"><span class="visually-hidden">第 4 站：</span>链条：一环扣一环</h3>
             <div class="concept__body">
               <p>
                 每个盒子里都留着一行小字：<strong>我前面那只盒子的指纹是多少</strong>。
@@ -265,7 +265,7 @@
 
           <section class="concept" id="concept-decentralized" aria-labelledby="concept-decentralized-title">
             <span class="concept__num" aria-hidden="true">05</span>
-            <h3 class="concept__title" id="concept-decentralized-title">去中心化：没有老大</h3>
+            <h3 class="concept__title" id="concept-decentralized-title"><span class="visually-hidden">第 5 站：</span>去中心化：没有老大</h3>
             <div class="concept__body">
               <p>
                 普通账本只有班长一个人保管：他请假，账本就找不到了；
@@ -308,7 +308,7 @@
 
           <section class="concept" id="concept-consensus" aria-labelledby="concept-consensus-title">
             <span class="concept__num" aria-hidden="true">06</span>
-            <h3 class="concept__title" id="concept-consensus-title">共识：大家一起核对</h3>
+            <h3 class="concept__title" id="concept-consensus-title"><span class="visually-hidden">第 6 站：</span>共识：大家一起核对</h3>
             <div class="concept__body">
               <p>
                 新盒子封口前，大家先做一道很难的数学题。
@@ -350,17 +350,24 @@
       </div>
     </section>
 
-    <section class="demo" id="demo" aria-labelledby="demo-title">
+    <section class="demo" id="demo" aria-labelledby="demo-title" aria-describedby="demo-lead">
       <div class="container">
         <header class="section-head section-head--inverse">
           <p class="eyebrow">动手演示</p>
           <h2 class="section-title" id="demo-title">把积木链接起来</h2>
-          <p class="section-lead">
-            在这里改一笔账，看看整条链会怎么反应。互动实验会挂载到下面的区域。
+          <p class="section-lead" id="demo-lead">
+            改一改下面任意一个区块里记的账，看看它的指纹怎么变、后面的链怎么报警。
           </p>
         </header>
 
-        <div class="demo-root" id="demo-root"></div>
+        <div class="demo-root" id="demo-root" role="group" aria-label="区块链互动演示"></div>
+
+        <noscript>
+          <p class="demo__fallback">
+            这个演示要用 JavaScript 才能动起来。打开浏览器的 JavaScript 后再刷新本页；
+            也可以先往上读六个概念——不看演示，也能把区块链讲明白。
+          </p>
+        </noscript>
       </div>
     </section>
   </main>
@@ -368,7 +375,12 @@
   <footer class="site-footer">
     <div class="container site-footer__inner">
       <p class="site-footer__brand">链上小课堂</p>
-      <p class="site-footer__note">写给小朋友的区块链入门 · 只用比喻，不炒币</p>
+      <nav class="site-footer__nav" aria-label="页脚导航">
+        <a href="#concepts">六个概念</a>
+        <a href="#demo">动手演示</a>
+        <a href="#top">回到顶部</a>
+      </nav>
+      <p class="site-footer__note">写给小朋友的区块链入门 · 只用比喻，不炒币，也不碰真钱</p>
       <p class="site-footer__copy">© 2026</p>
     </div>
   </footer>
