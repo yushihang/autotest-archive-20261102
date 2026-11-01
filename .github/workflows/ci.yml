@@ -14,7 +14,10 @@ jobs:
         with:
           node-version: 20
       - name: Install
-        run: if [ -f package-lock.json ]; then npm ci; else npm install; fi
+        run: |
+          if [ -f package.json ]; then
+            if [ -f package-lock.json ]; then npm ci; else npm install; fi
+          fi
       - name: Test
         run: npm test --if-present
       - name: Lint
