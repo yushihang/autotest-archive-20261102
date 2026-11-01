@@ -152,14 +152,51 @@ p {
   background-color: rgb(255 209 102 / 0.7);
 }
 
+/* 只给读屏软件看的文字：解决「看得见序号、听不见序号」的问题 */
+.visually-hidden:not(:focus):not(:active) {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 0;
+  clip-path: inset(50%);
+}
+
+/* 带 hidden 属性的元素一定不显示，别被组件样式盖掉 */
+[hidden] {
+  display: none !important;
+}
+
 :focus-visible {
   outline: 3px solid var(--color-brand);
   outline-offset: 3px;
 }
 
-.demo :focus-visible,
-.site-footer :focus-visible {
+/* 深色演示区里，焦点环换成亮色，才看得见 */
+.demo :focus-visible {
   outline-color: var(--color-sun);
+}
+
+/* 键盘用户「跳过去」的落点不需要再画一圈焦点框 */
+main[tabindex="-1"]:focus {
+  outline: none;
+}
+
+/* 高对比度模式下，颜色会被系统替换，靠边框保住按钮和卡片的边界 */
+@media (forced-colors: active) {
+  :focus-visible {
+    outline: 3px solid Highlight;
+  }
+
+  .btn,
+  .concept,
+  .demo-root,
+  .site-footer__nav a {
+    border: 1px solid CanvasText;
+  }
 }
 
 .skip-link {
@@ -855,11 +892,24 @@ section[id] {
 }
 
 .demo-root:empty::before {
-  content: "演示将在这里加载";
+  content: "互动演示加载中…";
   font-size: var(--text-sm);
   font-weight: 700;
   letter-spacing: 0.14em;
   color: rgb(195 204 232 / 0.75);
+}
+
+/* 没开 JavaScript 时给孩子的替代说明，别让演示区空着 */
+.demo__fallback {
+  display: block;
+  padding: var(--space-4) var(--space-5);
+  margin-block-start: var(--space-5);
+  font-size: var(--text-sm);
+  line-height: 1.75;
+  color: #fff;
+  background-color: rgb(255 255 255 / 0.06);
+  border: 2px dashed rgb(255 255 255 / 0.4);
+  border-radius: var(--radius-lg);
 }
 
 /* 9. Footer
@@ -891,6 +941,27 @@ section[id] {
 .site-footer__note {
   flex: 1 1 auto;
   text-align: center;
+}
+
+/* 页脚导航：给键盘用户一条不用鼠标的回头路 */
+.site-footer__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-4);
+}
+
+.site-footer__nav a {
+  font-weight: 700;
+  color: var(--color-ink-soft);
+  text-decoration-color: var(--color-border-strong);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.3em;
+  border-radius: var(--radius-sm);
+}
+
+.site-footer__nav a:hover {
+  color: var(--color-brand-dark);
+  text-decoration-color: currentColor;
 }
 
 .site-footer__copy {
@@ -1044,6 +1115,22 @@ section[id] {
   .btn:hover:not(:active),
   .concept:hover {
     transform: none;
+  }
+}
+
+/* 系统要求「更高对比度」时，把浅灰字和细边框一起加深 */
+@media (prefers-contrast: more) {
+  :root {
+    --color-ink-soft: #333e5f;
+    --color-ink-faint: #3d4866;
+    --color-border: #a9b6cf;
+    --color-border-strong: #8494b4;
+  }
+
+  .btn--ghost,
+  .concept,
+  .site-footer {
+    border-color: var(--color-border-strong);
   }
 }
 
