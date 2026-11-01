@@ -19,6 +19,6 @@ jobs:
             if [ -f package-lock.json ]; then npm ci; else npm install; fi
           fi
       - name: Test
-        run: npm test --if-present
+        run: if [ -f package.json ]; then npm test --if-present; fi
       - name: Lint
-        run: npm run lint --if-present
+        run: if [ -f package.json ]; then npm run lint --if-present; fi
