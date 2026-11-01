@@ -671,7 +671,8 @@ section[id] {
 /* 浅色底（mint / coral / sun）配白字对比度不足 4.5:1，改用深色文字 */
 .concept:nth-child(6n + 2) .concept__takeaway span,
 .concept:nth-child(6n + 3) .concept__takeaway span,
-.concept:nth-child(6n + 4) .concept__takeaway span {
+.concept:nth-child(6n + 4) .concept__takeaway span,
+.concept:nth-child(6n + 6) .concept__takeaway span {
   color: var(--color-ink);
 }
 
