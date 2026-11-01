@@ -1,0 +1,419 @@
+/* ==========================================================================
+   链上小课堂 — 互动演示样式
+   挂载在 index.html 的 #demo-root 里，配合 css/style.css 的深色 .demo 区块。
+   1. 容器与工具条
+   2. 状态提示
+   3. 区块卡片
+   4. 链条连接与警报
+   5. 响应式与动效
+   ========================================================================== */
+
+/* 1. 容器与工具条
+   ========================================================================== */
+.demo-root {
+  display: block;
+  min-block-size: 0;
+  padding: clamp(1rem, 3vw, 2rem);
+  text-align: start;
+  border-style: solid;
+  border-color: rgb(255 255 255 / 0.12);
+}
+
+.chain-demo {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.chain-demo__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--space-4);
+}
+
+.chain-demo__field {
+  display: grid;
+  flex: 1 1 16rem;
+  gap: var(--space-2);
+  min-inline-size: 0;
+}
+
+.chain-demo__field-label {
+  font-size: var(--text-sm);
+  font-weight: 800;
+  color: #fff;
+}
+
+.chain-demo__input {
+  inline-size: 100%;
+  padding: 0.7rem 0.9rem;
+  font-size: var(--text-base);
+  color: #fff;
+  background-color: rgb(9 16 32 / 0.55);
+  border: 1px solid rgb(255 255 255 / 0.22);
+  border-radius: var(--radius-sm);
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.chain-demo__input:hover {
+  border-color: rgb(255 255 255 / 0.38);
+}
+
+.chain-demo__input:focus-visible {
+  outline: none;
+  border-color: var(--color-sun);
+  box-shadow: 0 0 0 3px rgb(255 209 102 / 0.3);
+}
+
+.chain-demo__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.chain-demo__btn {
+  padding: 0.75rem 1.15rem;
+  font-size: var(--text-sm);
+  font-weight: 800;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    transform 0.18s ease,
+    opacity 0.18s ease;
+}
+
+.chain-demo__btn--add {
+  color: var(--color-dark);
+  background-color: var(--color-sun);
+  box-shadow: 0 12px 24px -16px rgb(255 209 102 / 0.95);
+}
+
+.chain-demo__btn--add:hover:not(:disabled) {
+  background-color: #ffdd8a;
+  transform: translateY(-2px);
+}
+
+.chain-demo__btn--add:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.chain-demo__btn--reset {
+  color: #fff;
+  background-color: transparent;
+  border-color: rgb(255 255 255 / 0.3);
+}
+
+.chain-demo__btn--reset:hover {
+  background-color: rgb(255 255 255 / 0.08);
+  border-color: #fff;
+}
+
+.chain-demo__btn:focus-visible {
+  outline: 3px solid rgb(255 255 255 / 0.6);
+  outline-offset: 2px;
+}
+
+/* 2. 状态提示
+   ========================================================================== */
+.chain-demo__status {
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  line-height: 1.65;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+}
+
+.chain-demo__status.is-ok {
+  color: #b6f2dc;
+  background-color: rgb(16 185 129 / 0.12);
+  border-color: rgb(16 185 129 / 0.4);
+}
+
+.chain-demo__status.is-bad {
+  color: #ffd2ca;
+  background-color: rgb(249 115 98 / 0.14);
+  border-color: rgb(249 115 98 / 0.45);
+}
+
+/* 3. 区块卡片
+   ========================================================================== */
+.chain-demo__list {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.chain-demo__item {
+  display: grid;
+  justify-items: stretch;
+}
+
+.chain-demo__block {
+  position: relative;
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  color: var(--color-ink);
+  background-image: linear-gradient(180deg, #ffffff 0%, #f3f7ff 100%);
+  border: 2px solid transparent;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 18px 32px -26px rgb(0 0 0 / 0.9);
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.chain-demo__block.is-alarm {
+  background-image: linear-gradient(180deg, #fff7f5 0%, #ffe8e3 100%);
+  border-color: var(--color-coral);
+  box-shadow:
+    0 0 0 3px rgb(249 115 98 / 0.22),
+    0 18px 32px -24px rgb(249 115 98 / 0.8);
+}
+
+.chain-demo__block-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
+}
+
+.chain-demo__block-index {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  inline-size: 2.4rem;
+  block-size: 2.4rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: #fff;
+  background-color: var(--color-brand);
+  border-radius: 50%;
+}
+
+.chain-demo__block.is-alarm .chain-demo__block-index {
+  background-color: var(--color-coral);
+}
+
+.chain-demo__block-title {
+  font-size: var(--text-lg);
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.chain-demo__block-flag {
+  margin-inline-start: auto;
+  padding: 0.1rem 0.65rem;
+  font-size: var(--text-xs);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #067a55;
+  background-color: rgb(16 185 129 / 0.12);
+  border: 1px solid rgb(16 185 129 / 0.35);
+  border-radius: var(--radius-pill);
+}
+
+.chain-demo__block.is-alarm .chain-demo__block-flag {
+  color: #a9321f;
+  background-color: rgb(249 115 98 / 0.16);
+  border-color: rgb(249 115 98 / 0.5);
+}
+
+.chain-demo__block-field {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.chain-demo__block-label {
+  font-size: var(--text-xs);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--color-ink-faint);
+}
+
+.chain-demo__block-data {
+  inline-size: 100%;
+  padding: 0.55rem 0.7rem;
+  font-size: var(--text-base);
+  color: var(--color-ink);
+  background-color: #fff;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    background-color 0.18s ease;
+}
+
+.chain-demo__block-data:hover {
+  border-color: var(--color-ink-faint);
+}
+
+.chain-demo__block-data:focus-visible {
+  outline: none;
+  border-color: var(--color-brand);
+  box-shadow: 0 0 0 3px rgb(37 99 235 / 0.2);
+}
+
+.chain-demo__block.is-alarm .chain-demo__block-data {
+  background-color: #fffaf8;
+  border-color: var(--color-coral);
+}
+
+.chain-demo__prints {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+}
+
+.chain-demo__print {
+  display: grid;
+  gap: 0.1rem;
+  padding: 0.45rem 0.7rem;
+  background-color: var(--color-brand-soft);
+  border-radius: var(--radius-sm);
+  transition: background-color 0.2s ease;
+}
+
+.chain-demo__block.is-alarm .chain-demo__print {
+  background-color: rgb(249 115 98 / 0.1);
+}
+
+.chain-demo__print dt {
+  font-size: var(--text-xs);
+  font-weight: 800;
+  color: var(--color-ink-faint);
+}
+
+.chain-demo__print dd {
+  margin: 0;
+}
+
+.chain-demo__code {
+  display: inline-block;
+  max-inline-size: 100%;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+  color: var(--color-brand-dark);
+  overflow-wrap: anywhere;
+}
+
+.chain-demo__block.is-alarm .chain-demo__code {
+  color: #a9321f;
+}
+
+.chain-demo__code--old {
+  color: var(--color-ink-soft);
+  text-decoration: line-through;
+}
+
+.chain-demo__block.is-alarm .chain-demo__code--old {
+  color: var(--color-ink-faint);
+}
+
+.chain-demo__block-alarm {
+  margin: 0;
+  padding: 0.45rem 0.7rem;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  line-height: 1.65;
+  color: #a9321f;
+  background-color: rgb(249 115 98 / 0.12);
+  border-inline-start: 3px solid var(--color-coral);
+  border-radius: var(--radius-sm);
+}
+
+.chain-demo__block-alarm .chain-demo__code {
+  font-size: 0.75rem;
+  color: #a9321f;
+}
+
+.chain-demo__block-alarm .chain-demo__code--old {
+  color: var(--color-ink-faint);
+}
+
+.chain-demo__note {
+  max-inline-size: 62rem;
+  font-size: var(--text-xs);
+  line-height: 1.75;
+  color: rgb(185 196 220 / 0.9);
+}
+
+.chain-demo__note strong {
+  color: var(--color-sun);
+}
+
+/* 4. 链条连接与警报
+   ========================================================================== */
+.chain-demo__connector {
+  --connector-color: rgb(255 255 255 / 0.4);
+
+  position: relative;
+  justify-self: start;
+  inline-size: 2px;
+  block-size: 2rem;
+  margin-inline-start: calc(var(--space-5) + 1.2rem - 1px);
+  background-image: linear-gradient(
+    var(--connector-color) 55%,
+    transparent 55%
+  );
+  background-size: 2px 0.55rem;
+}
+
+.chain-demo__connector::after {
+  content: "";
+  position: absolute;
+  inset-block-end: 0.05rem;
+  inset-inline-start: 50%;
+  inline-size: 0.45rem;
+  block-size: 0.45rem;
+  border-inline-end: 2px solid var(--connector-color);
+  border-block-end: 2px solid var(--connector-color);
+  transform: translateX(-50%) rotate(45deg);
+  transition: border-color 0.2s ease;
+}
+
+.chain-demo__connector.is-alarm {
+  --connector-color: var(--color-coral);
+}
+
+/* 5. 响应式与动效
+   ========================================================================== */
+@media (min-width: 34rem) {
+  .chain-demo__prints {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 33.99rem) {
+  .chain-demo__block {
+    padding: var(--space-4);
+  }
+
+  .chain-demo__connector {
+    margin-inline-start: calc(var(--space-4) + 1.2rem - 1px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chain-demo__input,
+  .chain-demo__btn,
+  .chain-demo__block,
+  .chain-demo__block-data,
+  .chain-demo__connector::after {
+    transition: none;
+  }
+}
